@@ -1,6 +1,6 @@
 # Data Science Platform Prototype
-This is a prototype in work
-
+- This is a prototype in work
+- The platform is designed to support users with no coding experience and uses data analysis for their daily job 
 ## Features
 
 - Data upload (CSV/Excel), preview, and missing value/statistical summary
