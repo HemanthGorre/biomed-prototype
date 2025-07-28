@@ -10,3 +10,4 @@ openpyxl>=3.0.0
 umap-learn>=0.5.3
 shap>=0.41.0,<0.44.0
 streamlit_plotly_events
+ipython
