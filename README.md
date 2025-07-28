@@ -1,4 +1,5 @@
-# Biomedical Data Science Platform Prototype
+# Data Science Platform Prototype
+This is a prototype in work
 
 ## Features
 
@@ -20,4 +21,4 @@
 
 1. **Clone or download this folder.**
 2. *(Recommended)* Create a fresh Python environment.
-3. **Install dependencies:**
+3. **Install dependencies:*
