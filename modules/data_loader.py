@@ -2,14 +2,24 @@ import pandas as pd
 import streamlit as st
 
 def upload_data():
-    st.sidebar.header("Step 1: Upload Data")
-    uploaded_file = st.sidebar.file_uploader("Upload CSV or Excel file", type=['csv', 'xlsx'])
-    if uploaded_file:
-        if uploaded_file.name.endswith('.csv'):
+    """Streamlit data upload with Excel sheet selection if needed."""
+    uploaded_file = st.sidebar.file_uploader("Upload CSV or Excel file", type=["csv", "xlsx"])
+    if uploaded_file is not None:
+        file_name = uploaded_file.name.lower()
+        if file_name.endswith('.csv'):
             df = pd.read_csv(uploaded_file)
+            st.sidebar.success("CSV uploaded!")
+            return df
+        elif file_name.endswith('.xlsx'):
+            xls = pd.ExcelFile(uploaded_file)
+            sheet_names = xls.sheet_names
+            sheet = st.sidebar.selectbox("Select Excel sheet", sheet_names)
+            df = pd.read_excel(xls, sheet_name=sheet)
+            st.sidebar.success(f"Excel sheet '{sheet}' loaded!")
+            return df
         else:
-            df = pd.read_excel(uploaded_file)
-        return df
+            st.sidebar.warning("Unsupported file type.")
+            return None
     else:
         return None
 
